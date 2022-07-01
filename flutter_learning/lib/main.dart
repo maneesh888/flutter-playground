@@ -2,18 +2,29 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  var questionIndex = 0;
+  void answerQuestion() {
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
+
+    print(questionIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
-    var questionIndex = 0;
-    void answerQuestion() {
-      questionIndex = questionIndex + 1;
-      print(questionIndex);
-    }
-
     var questions = [
-      'What\'s your favorate color',
-      'What\'s your favourate animal'
+      'What\'s your favorate color?',
+      'What\'s your favourate animal?'
     ];
     return MaterialApp(
       home: Scaffold(
